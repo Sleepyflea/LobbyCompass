@@ -1,0 +1,137 @@
+# %player% is a placeholder that gets replaced with the players name.
+# Areas %player% does not work with
+# - compass.name
+# - compass.lore
+
+# The title of the Custom GUI menu you will create.
+gui-title: "&a&lAWESOME Warp-Compass Oo"
+
+# The amount of lines that appear in the custom GUI. (Must be between 1 and 6)
+gui-line-count: 3
+
+# Should the player be able to drop the Custom Item?
+can-drop-compass: false
+
+# Should the player be able to drop the Custom Item on Death?
+drop-on-death: false
+
+# Should the player receive the custom item upon returning to a custom item enabled world?
+receive-on-world-return: true
+
+# Should the player receive the custom item after respawning from death?
+receive-on-respawn: true
+
+# Should the player recieve the custom item when they join the world?
+receive-on-join: true
+
+# The prefix of chat messages sent by the plugin.
+prefix: "&f[&eCompass&f] "
+
+# Filler item setup for empty Inventory Spaces
+empty-slot:
+  # The name of the item, Use "&f" for an empty name
+  name: "&f"
+  
+  # Item Id List - https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Material.html 
+  # Use "AIR" if you don't want any item fillers
+  item: WHITE_STAINED_GLASS_PANE
+  
+  # The lore for the filler item # Follow compass lore below as an example if you use this.
+  lore:
+  
+  # Should the Custom Item have an enchantment glow?
+  glowing: false
+
+# Custom Item setup
+compass:
+  # Display Name of the Item
+  name: "&f&lClick this to open warp menu examples!"
+  
+  # https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Material.html#enum.constant.summary
+  item: COMPASS # The Material ID of the item
+  
+  # This is a little description that shows up when you hover over the Custom Item in your inventory.
+  # You can have as many lines as you want.
+  lore:
+  - "&bChoose A Server,"
+  - "&3Any Server!"
+  
+  # Should the Custom Item have an enchantment glow?
+  glowing: true
+  
+  # Should the Custom Item play a sound when activated?
+  play-sound: true
+  
+  # https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Sound.html#enum.constant.summary
+  sound: ENTITY_PLAYER_LEVELUP # The Sound ID the item should play. 
+  
+  # The slot the item should appear at 
+  # This starts at 0 for the first slot, and will only go there if the slot is empty.
+  # If the slot is not empty it will try a free slot, if the inventory is full it will drop it.
+  slot: 4
+
+# A list of worlds the Custom Item works in
+worlds:
+- "world"
+- "world_nether"
+- "world_the_end"
+
+# Custom GUI setup area
+# To use Bungeecord make sure executed-by-player is set to true and use "server {server}".
+# data is just a field reference for the Custom Items. Your custom field names follow after, do not remove "data".
+# Sounds: https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Sound.html#enum.constant.summary
+# Items: https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Material.html#enum.constant.summary
+data:
+  lobby:
+    name: "&e&lLobby"
+    item: BARRIER
+    lore:
+    - "&1This will take you to the lobby"
+    - "&7- &4You are already here!"
+    position-in-inventory: 10
+    glowing: false
+    executed-by-player: false # Should the command be executed as though the player typed and ran the command?
+    cmds:
+    - "cmi spawn %player%" # DO NOT include the forward slash ("/")
+    cost: 0
+    play-sound: true
+    sound: ENTITY_PLAYER_LEVELUP
+  survival:
+    name: "&2&lSurvival Server"
+    item: DIAMOND_PICKAXE
+    lore:
+      - "&2This will take you to survival"
+    position-in-inventory: 12
+    glowing: false
+    executed-by-player: true # Should the command be executed as though the player typed and ran the command?
+    cmds:
+    - "server survival" # DO NOT include the forward slash ("/")
+    cost: 0
+    play-sound: true
+    sound: ENTITY_PLAYER_LEVELUP
+  creative:
+    name: "&5&lCreative Server"
+    item: REDSTONE
+    lore:
+      - "&5This will sudo you!"
+    position-in-inventory: 16
+    glowing: false
+    executed-by-player: false # Should the command be executed as though the player typed and ran the command?
+    cmds:
+    - "sudo %player% server creative" # DO NOT include the forward slash ("/")
+    cost: 0
+    play-sound: true
+    sound: ENTITY_PLAYER_LEVELUP
+  prison:
+    name: "&6&lSmite Me"
+    item: IRON_BARS
+    lore:
+      - "&6This will smite you!"
+    position-in-inventory: 14
+    glowing: false
+    executed-by-player: false # Should the command be executed as though the player typed and ran the command?
+    cmds:
+    - "smite %player%" # DO NOT include the forward slash ("/")
+    cost: 0
+    play-sound: true
+    sound: ENTITY_PLAYER_LEVELUP

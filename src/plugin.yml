@@ -1,0 +1,23 @@
+name: LobbyCompass
+author: Bettanation
+version: 1.7
+api-version: 1.16
+ 
+main: com.bettanation.lobbycompass.LobbyCompass
+ 
+commands:
+    lcs:
+        description: The main command for LCS
+       
+permissions:
+    lcs.use:
+        description: Permission to use the command /lcs in chat.
+        default: op
+    lcs.get:
+        description: Permission to get a custom item with /lcs get.
+        default: op
+    lcs.reload:
+        description: Permission to reload the configuration with /lcs reload.
+        default: op
+          
+softdepend: [Vault, PlaceholderAPI]
